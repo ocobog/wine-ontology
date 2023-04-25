@@ -424,12 +424,17 @@
         <NamedIndividual IRI="#Vega_Sicilia"/>
     </ClassAssertion>
     <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#country"/>
+        <ObjectProperty IRI="#origin"/>
         <NamedIndividual IRI="#Cabernet_Vega_Sicilia"/>
         <NamedIndividual IRI="#Spain"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#country"/>
+        <NamedIndividual IRI="#El_Corte_Ingles"/>
+        <NamedIndividual IRI="#Spain"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#origin"/>
         <NamedIndividual IRI="#Tempranillo_Vega_Sicilia"/>
         <NamedIndividual IRI="#Spain"/>
     </ObjectPropertyAssertion>
@@ -583,7 +588,7 @@
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#purchasedAt"/>
-        <Class IRI="#Country"/>
+        <Class IRI="#Point_of_sale"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#region"/>
