@@ -1,0 +1,611 @@
+@prefix : <http://www.semanticweb.org/óscar/ontologies/2023/3/spanish-wines#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/óscar/ontologies/2023/3/spanish-wines#> .
+
+<http://www.semanticweb.org/óscar/ontologies/2023/3/spanish-wines> rdf:type owl:Ontology ;
+                                                                    :author "Óscar Cobo Gómez" ;
+                                                                    :name "Spanish wines" .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled
+<http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.semanticweb.org/óscar/ontologies/2023/3/spanish-wines#author
+:author rdf:type owl:AnnotationProperty .
+
+
+###  http://www.semanticweb.org/óscar/ontologies/2023/3/spanish-wines#name
+:name rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2000/01/rdf-schema#sameAs
+rdfs:sameAs rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/óscar/ontologies/2023/3/spanish-wines#country
+:country rdf:type owl:ObjectProperty ;
+         rdfs:domain :Winery ;
+         rdfs:range :Country ;
+         rdfs:comment "Country where the winery is located." .
+
+
+###  http://www.semanticweb.org/óscar/ontologies/2023/3/spanish-wines#fromGrape
+:fromGrape rdf:type owl:ObjectProperty ;
+           rdfs:domain :Wine ;
+           rdfs:range :Grape ;
+           rdfs:comment "Indicates the grape used for this wine." .
+
+
+###  http://www.semanticweb.org/óscar/ontologies/2023/3/spanish-wines#fromWinery
+:fromWinery rdf:type owl:ObjectProperty ;
+            rdfs:domain :Wine ;
+            rdfs:range :Winery ;
+            rdfs:comment "Indicates the winery who made this wine." .
+
+
+###  http://www.semanticweb.org/óscar/ontologies/2023/3/spanish-wines#grownGrapes
+:grownGrapes rdf:type owl:ObjectProperty ;
+             rdfs:domain :Winery ;
+             rdfs:range :Grape ;
+             rdfs:comment "Variety of grapes." .
+
+
+###  http://www.semanticweb.org/óscar/ontologies/2023/3/spanish-wines#origin
+:origin rdf:type owl:ObjectProperty ;
+        rdfs:domain :Grape ;
+        rdfs:range :Country ;
+        rdfs:comment "Grape origin" .
+
+
+###  http://www.semanticweb.org/óscar/ontologies/2023/3/spanish-wines#purchasedAt
+:purchasedAt rdf:type owl:ObjectProperty ;
+             rdfs:domain :Wine ;
+             rdfs:range :Point_of_sale ;
+             rdfs:comment "Indicates where you can either purchase or taste this wine." .
+
+
+###  http://www.semanticweb.org/óscar/ontologies/2023/3/spanish-wines#region
+:region rdf:type owl:ObjectProperty ;
+        rdfs:domain :Wine ;
+        rdfs:range :Region ;
+        rdfs:comment "Region of procedence." .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/óscar/ontologies/2023/3/spanish-wines#acidity
+:acidity rdf:type owl:DatatypeProperty ;
+         rdfs:domain :Wine ;
+         rdfs:range xsd:decimal ;
+         rdfs:comment "Acidity value of the wine." .
+
+
+###  http://www.semanticweb.org/óscar/ontologies/2023/3/spanish-wines#body
+:body rdf:type owl:DatatypeProperty ;
+      rdfs:domain :Wine ;
+      rdfs:range xsd:decimal ;
+      rdfs:comment "Body value of the wine." .
+
+
+###  http://www.semanticweb.org/óscar/ontologies/2023/3/spanish-wines#bottling
+:bottling rdf:type owl:DatatypeProperty ;
+          rdfs:domain :Winery ;
+          rdfs:range xsd:string ;
+          rdfs:comment "Indicates the type of bottle used for all the wines." .
+
+
+###  http://www.semanticweb.org/óscar/ontologies/2023/3/spanish-wines#carbonAmount
+:carbonAmount rdf:type owl:DatatypeProperty ;
+              rdfs:domain :By_carbon_dioxide ;
+              rdfs:range xsd:decimal ;
+              rdfs:comment "Amount of carbon dioxide inside the wine." .
+
+
+###  http://www.semanticweb.org/óscar/ontologies/2023/3/spanish-wines#greenGrowth
+:greenGrowth rdf:type owl:DatatypeProperty ;
+             rdfs:domain :Winery ;
+             rdfs:range xsd:boolean ;
+             rdfs:comment "Flag that indicates if the growth is ecologycal or rather industrial" .
+
+
+###  http://www.semanticweb.org/óscar/ontologies/2023/3/spanish-wines#growthProcess
+:growthProcess rdf:type owl:DatatypeProperty ;
+               rdfs:domain :Winery ;
+               rdfs:range xsd:string ;
+               rdfs:comment "Indicates the type of growth given to the grapes" .
+
+
+###  http://www.semanticweb.org/óscar/ontologies/2023/3/spanish-wines#num_reviews
+:num_reviews rdf:type owl:DatatypeProperty ;
+             rdfs:domain :Wine ;
+             rdfs:range xsd:integer ;
+             rdfs:comment "Number of reviews given to this wine." .
+
+
+###  http://www.semanticweb.org/óscar/ontologies/2023/3/spanish-wines#price
+:price rdf:type owl:DatatypeProperty ;
+       rdfs:domain :Wine ;
+       rdfs:range xsd:decimal ;
+       rdfs:comment "Price of this wine." .
+
+
+###  http://www.semanticweb.org/óscar/ontologies/2023/3/spanish-wines#rating
+:rating rdf:type owl:DatatypeProperty ;
+        rdfs:domain :Wine ;
+        rdfs:range xsd:decimal ;
+        rdfs:comment "Averange rating of the wine." .
+
+
+###  http://www.semanticweb.org/óscar/ontologies/2023/3/spanish-wines#residualSugar
+:residualSugar rdf:type owl:DatatypeProperty ;
+               rdfs:domain :By_sugar ;
+               rdfs:range xsd:decimal ;
+               rdfs:comment "Amount of residual sugar the wine has." .
+
+
+###  http://www.semanticweb.org/óscar/ontologies/2023/3/spanish-wines#wineProcess
+:wineProcess rdf:type owl:DatatypeProperty ;
+             rdfs:domain :Winery ;
+             rdfs:range xsd:string ;
+             rdfs:comment "Indicates the type of process given to the wine." .
+
+
+###  http://www.semanticweb.org/óscar/ontologies/2023/3/spanish-wines#year
+:year rdf:type owl:DatatypeProperty ;
+      rdfs:domain :Wine ;
+      rdfs:range xsd:integer ;
+      rdfs:comment "Indicates from which year the wine is." .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/óscar/ontologies/2023/3/spanish-wines#By_carbon_dioxide
+:By_carbon_dioxide rdf:type owl:Class ;
+                   rdfs:subClassOf :Wine ;
+                   rdfs:comment "Wines classified by it's carbon dioxide contents." .
+
+
+###  http://www.semanticweb.org/óscar/ontologies/2023/3/spanish-wines#By_sugar
+:By_sugar rdf:type owl:Class ;
+          rdfs:subClassOf :Wine ;
+          rdfs:comment "Wines classified by it's sugar contents." .
+
+
+###  http://www.semanticweb.org/óscar/ontologies/2023/3/spanish-wines#Country
+:Country rdf:type owl:Class ;
+         rdfs:comment "Country where the wine comes from or where you can taste it." .
+
+
+###  http://www.semanticweb.org/óscar/ontologies/2023/3/spanish-wines#Dry_wine
+:Dry_wine rdf:type owl:Class ;
+          rdfs:subClassOf :By_sugar ;
+          rdfs:comment "Wine with really low residual sugar, granting a higher acidity and alcoholic grade." .
+
+
+###  http://www.semanticweb.org/óscar/ontologies/2023/3/spanish-wines#Grape
+:Grape rdf:type owl:Class ;
+       owl:equivalentClass [ rdf:type owl:Restriction ;
+                             owl:onProperty :origin ;
+                             owl:someValuesFrom :Country
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :origin ;
+                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onClass :Country
+                           ] ;
+       rdfs:comment "Grape information used for making the wine." .
+
+
+###  http://www.semanticweb.org/óscar/ontologies/2023/3/spanish-wines#Pink_wine
+:Pink_wine rdf:type owl:Class ;
+           rdfs:subClassOf :Still_wine ;
+           rdfs:comment "Wine with lesser initial mashing process, it produces the unusual pink color." .
+
+
+###  http://www.semanticweb.org/óscar/ontologies/2023/3/spanish-wines#Point_of_sale
+:Point_of_sale rdf:type owl:Class ;
+               rdfs:comment "Place where you can purchase or taste wine." .
+
+
+###  http://www.semanticweb.org/óscar/ontologies/2023/3/spanish-wines#Red_grape
+:Red_grape rdf:type owl:Class ;
+           rdfs:subClassOf :Grape ;
+           rdfs:comment "Type of grape whose berry is red." .
+
+
+###  http://www.semanticweb.org/óscar/ontologies/2023/3/spanish-wines#Red_wine
+:Red_wine rdf:type owl:Class ;
+          rdfs:subClassOf :Still_wine ;
+          rdfs:comment "Type of wine ellaborated together with skins and must." .
+
+
+###  http://www.semanticweb.org/óscar/ontologies/2023/3/spanish-wines#Region
+:Region rdf:type owl:Class ;
+        rdfs:subClassOf :Country ;
+        rdfs:comment "Region where the wine is made." .
+
+
+###  http://www.semanticweb.org/óscar/ontologies/2023/3/spanish-wines#Semi-dry_wine
+:Semi-dry_wine rdf:type owl:Class ;
+               rdfs:subClassOf :By_sugar ;
+               rdfs:comment "Wine that has about 4-12 g/l of sugar." .
+
+
+###  http://www.semanticweb.org/óscar/ontologies/2023/3/spanish-wines#Semisweet_wine
+:Semisweet_wine rdf:type owl:Class ;
+                rdfs:subClassOf :By_sugar ;
+                rdfs:comment "Wine that has about 12-45 g/l of sugar." .
+
+
+###  http://www.semanticweb.org/óscar/ontologies/2023/3/spanish-wines#Sparkling_wine
+:Sparkling_wine rdf:type owl:Class ;
+                rdfs:subClassOf :By_carbon_dioxide ;
+                rdfs:comment "A sparkling wine it's a wine with a lot of carbon dioxide content used for the bubbling." .
+
+
+###  http://www.semanticweb.org/óscar/ontologies/2023/3/spanish-wines#Special
+:Special rdf:type owl:Class ;
+         rdfs:subClassOf :Wine ;
+         rdfs:comment "WInes with special properties that doesn't fit in other categories." .
+
+
+###  http://www.semanticweb.org/óscar/ontologies/2023/3/spanish-wines#Still_wine
+:Still_wine rdf:type owl:Class ;
+            rdfs:subClassOf :By_carbon_dioxide ;
+            rdfs:comment "A still wine it's a wine with a quatintity near 0 of carbon dioxide content, so the bubbling is impercetible." .
+
+
+###  http://www.semanticweb.org/óscar/ontologies/2023/3/spanish-wines#Sweet_wine
+:Sweet_wine rdf:type owl:Class ;
+            rdfs:subClassOf :By_sugar ;
+            rdfs:comment "Wine that has over 45 g/l of sugar." .
+
+
+###  http://www.semanticweb.org/óscar/ontologies/2023/3/spanish-wines#White_grape
+:White_grape rdf:type owl:Class ;
+             rdfs:subClassOf :Grape ;
+             rdfs:comment "Type of grape whose berry is white." .
+
+
+###  http://www.semanticweb.org/óscar/ontologies/2023/3/spanish-wines#White_wine
+:White_wine rdf:type owl:Class ;
+            rdfs:subClassOf :Still_wine ;
+            rdfs:comment "Type of wine that is made in the absence of skins, only fermenting the must at a controlled temperature." .
+
+
+###  http://www.semanticweb.org/óscar/ontologies/2023/3/spanish-wines#Wine
+:Wine rdf:type owl:Class ;
+      owl:equivalentClass [ rdf:type owl:Restriction ;
+                            owl:onProperty :fromGrape ;
+                            owl:someValuesFrom :Grape
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :fromWinery ;
+                            owl:someValuesFrom :Winery
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :region ;
+                            owl:someValuesFrom :Region
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :fromGrape ;
+                            owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onClass :Grape
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :fromWinery ;
+                            owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onClass :Winery
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :region ;
+                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onClass :Region
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :price ;
+                            owl:someValuesFrom xsd:integer
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :rating ;
+                            owl:someValuesFrom xsd:integer
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :year ;
+                            owl:someValuesFrom xsd:integer
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :price ;
+                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onDataRange xsd:integer
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :rating ;
+                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onDataRange xsd:integer
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :year ;
+                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onDataRange xsd:integer
+                          ] ;
+      rdfs:comment "Alcoholic drink made from fermented grapes." .
+
+
+###  http://www.semanticweb.org/óscar/ontologies/2023/3/spanish-wines#Winery
+:Winery rdf:type owl:Class ;
+        owl:equivalentClass [ rdf:type owl:Restriction ;
+                              owl:onProperty :country ;
+                              owl:someValuesFrom :Country
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :country ;
+                              owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onClass :Country
+                            ] ;
+        rdfs:comment "Place where the wine is made." .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.semanticweb.org/óscar/ontologies/2023/3/spanish-wines#Bodeboca
+:Bodeboca rdf:type owl:NamedIndividual ,
+                   :Point_of_sale .
+
+
+###  http://www.semanticweb.org/óscar/ontologies/2023/3/spanish-wines#Cabernet_sauvignon
+:Cabernet_sauvignon rdf:type owl:NamedIndividual ,
+                             :Red_grape ;
+                    :origin :Spain .
+
+
+###  http://www.semanticweb.org/óscar/ontologies/2023/3/spanish-wines#Don_PX_Convento_Seleccion
+:Don_PX_Convento_Seleccion rdf:type owl:NamedIndividual ;
+                           :fromGrape :Pedro_Ximénez ;
+                           :fromWinery :Toro_Albala ;
+                           :purchasedAt :Bodeboca ;
+                           :region :Montilla-Moriles ;
+                           :acidity 1 ;
+                           :body 5 ;
+                           :num_reviews 139 ;
+                           :price 244.85 ;
+                           :rating 4.8 ;
+                           :residualSugar 320 ;
+                           :year 1931 .
+
+
+###  http://www.semanticweb.org/óscar/ontologies/2023/3/spanish-wines#El_Corte_Ingles
+:El_Corte_Ingles rdf:type owl:NamedIndividual ,
+                          :Point_of_sale .
+
+
+###  http://www.semanticweb.org/óscar/ontologies/2023/3/spanish-wines#Montilla-Moriles
+:Montilla-Moriles rdf:type owl:NamedIndividual ,
+                           :Region .
+
+
+###  http://www.semanticweb.org/óscar/ontologies/2023/3/spanish-wines#Pedro_Ximénez
+:Pedro_Ximénez rdf:type owl:NamedIndividual ,
+                        :White_grape ;
+               rdfs:sameAs "http://es.dbpedia.org/resource/Pedro_ximénez_(uva)"^^xsd:anyURI .
+
+
+###  http://www.semanticweb.org/óscar/ontologies/2023/3/spanish-wines#Ribera_del_Duero
+:Ribera_del_Duero rdf:type owl:NamedIndividual ,
+                           :Region .
+
+
+###  http://www.semanticweb.org/óscar/ontologies/2023/3/spanish-wines#Spain
+:Spain rdf:type owl:NamedIndividual ,
+                :Country .
+
+
+###  http://www.semanticweb.org/óscar/ontologies/2023/3/spanish-wines#Tempranillo
+:Tempranillo rdf:type owl:NamedIndividual ,
+                      :Red_grape ;
+             :origin :Spain .
+
+
+###  http://www.semanticweb.org/óscar/ontologies/2023/3/spanish-wines#Toro_Albala
+:Toro_Albala rdf:type owl:NamedIndividual ,
+                      :Winery ;
+             :country :Spain ;
+             :bottling "Black crystal bottle signed by the author who took care of the wine since it's origin." ;
+             :greenGrowth "true"^^xsd:boolean ;
+             :growthProcess "Grown on the highest quality grounds (Sierra de Montilla y Moriles Alto)." ;
+             :wineProcess "Made used year system so each wine can has it's own nature." .
+
+
+###  http://www.semanticweb.org/óscar/ontologies/2023/3/spanish-wines#Unico
+:Unico rdf:type owl:NamedIndividual ,
+                :Red_wine ;
+       :fromGrape :Cabernet_sauvignon ,
+                  :Tempranillo ;
+       :fromWinery :Vega_Sicilia ;
+       :purchasedAt :El_Corte_Ingles ;
+       :region :Ribera_del_Duero ;
+       :acidity 3 ;
+       :body 5 ;
+       :num_reviews 1793 ;
+       :price 324.95 ;
+       :rating 4.8 ;
+       :year 2009 .
+
+
+###  http://www.semanticweb.org/óscar/ontologies/2023/3/spanish-wines#Vega_Sicilia
+:Vega_Sicilia rdf:type owl:NamedIndividual ;
+              :country :Spain ;
+              :bottling "Crystal bottle" ;
+              :greenGrowth "true"^^xsd:boolean ;
+              :growthProcess "Outside on the banks of the River Duero" ;
+              :wineProcess "Common winery process." .
+
+
+#################################################################
+#    Rules
+#################################################################
+
+<http://www.semanticweb.org/óscar/ontologies/2023/3/spanish-wines/w> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+<http://www.semanticweb.org/óscar/ontologies/2023/3/spanish-wines/res> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "" ;
+   rdfs:label "S2" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Wine ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <http://www.semanticweb.org/óscar/ontologies/2023/3/spanish-wines/w>
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :residualSugar ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> <http://www.semanticweb.org/óscar/ontologies/2023/3/spanish-wines/w> ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> <http://www.semanticweb.org/óscar/ontologies/2023/3/spanish-wines/res>
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#greaterThan> ;
+                                                                             <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                                          rdf:first <http://www.semanticweb.org/óscar/ontologies/2023/3/spanish-wines/res> ;
+                                                                                                                          rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                     rdf:first 12 ;
+                                                                                                                                     rdf:rest rdf:nil
+                                                                                                                                   ]
+                                                                                                                        ]
+                                                                           ] ;
+                                                                 rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#lessThan> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                                                     rdf:first <http://www.semanticweb.org/óscar/ontologies/2023/3/spanish-wines/res> ;
+                                                                                                                                     rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                                rdf:first 46 ;
+                                                                                                                                                rdf:rest rdf:nil
+                                                                                                                                              ]
+                                                                                                                                   ]
+                                                                                      ] ;
+                                                                            rdf:rest rdf:nil
+                                                                          ]
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Semisweet_wine ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <http://www.semanticweb.org/óscar/ontologies/2023/3/spanish-wines/w>
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "" ;
+   rdfs:label "S1" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Wine ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <http://www.semanticweb.org/óscar/ontologies/2023/3/spanish-wines/w>
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :residualSugar ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> <http://www.semanticweb.org/óscar/ontologies/2023/3/spanish-wines/w> ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> <http://www.semanticweb.org/óscar/ontologies/2023/3/spanish-wines/res>
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#greaterThan> ;
+                                                                             <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                                          rdf:first <http://www.semanticweb.org/óscar/ontologies/2023/3/spanish-wines/res> ;
+                                                                                                                          rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                     rdf:first 3 ;
+                                                                                                                                     rdf:rest rdf:nil
+                                                                                                                                   ]
+                                                                                                                        ]
+                                                                           ] ;
+                                                                 rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#lessThan> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                                                     rdf:first <http://www.semanticweb.org/óscar/ontologies/2023/3/spanish-wines/res> ;
+                                                                                                                                     rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                                rdf:first 13 ;
+                                                                                                                                                rdf:rest rdf:nil
+                                                                                                                                              ]
+                                                                                                                                   ]
+                                                                                      ] ;
+                                                                            rdf:rest rdf:nil
+                                                                          ]
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Semi-dry_wine ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <http://www.semanticweb.org/óscar/ontologies/2023/3/spanish-wines/w>
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "" ;
+   rdfs:label "S3" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Wine ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <http://www.semanticweb.org/óscar/ontologies/2023/3/spanish-wines/w>
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :residualSugar ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> <http://www.semanticweb.org/óscar/ontologies/2023/3/spanish-wines/w> ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> <http://www.semanticweb.org/óscar/ontologies/2023/3/spanish-wines/res>
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#greaterThan> ;
+                                                                             <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                                          rdf:first <http://www.semanticweb.org/óscar/ontologies/2023/3/spanish-wines/res> ;
+                                                                                                                          rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                     rdf:first 45 ;
+                                                                                                                                     rdf:rest rdf:nil
+                                                                                                                                   ]
+                                                                                                                        ]
+                                                                           ] ;
+                                                                 rdf:rest rdf:nil
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Sweet_wine ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <http://www.semanticweb.org/óscar/ontologies/2023/3/spanish-wines/w>
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+###  Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/

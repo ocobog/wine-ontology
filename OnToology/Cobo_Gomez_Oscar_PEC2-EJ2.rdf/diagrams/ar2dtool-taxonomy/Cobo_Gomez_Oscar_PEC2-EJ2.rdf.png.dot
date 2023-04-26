@@ -1,0 +1,21 @@
+digraph ar2dtool_diagram { 
+rankdir=LR;
+size="1000"
+node [shape = rectangle, color="black"]; "spanish-wines:Red_grape" "spanish-wines:Sparkling_wine" "spanish-wines:By_carbon_dioxide" "spanish-wines:Semi-dry_wine" "spanish-wines:Red_wine" "spanish-wines:Still_wine" "spanish-wines:Country" "spanish-wines:Region" "spanish-wines:Wine" "spanish-wines:By_sugar" "spanish-wines:Semisweet_wine" "spanish-wines:Pink_wine" "spanish-wines:Grape" "spanish-wines:Special" "spanish-wines:Dry_wine" "spanish-wines:White_grape" "spanish-wines:Sweet_wine" "spanish-wines:White_wine" ; /*classes style*/
+	"spanish-wines:Still_wine" -> "spanish-wines:By_carbon_dioxide" [ label = "rdfs:subClassOf" ];
+	"spanish-wines:Pink_wine" -> "spanish-wines:Still_wine" [ label = "rdfs:subClassOf" ];
+	"spanish-wines:Semi-dry_wine" -> "spanish-wines:By_sugar" [ label = "rdfs:subClassOf" ];
+	"spanish-wines:Sweet_wine" -> "spanish-wines:By_sugar" [ label = "rdfs:subClassOf" ];
+	"spanish-wines:Red_grape" -> "spanish-wines:Grape" [ label = "rdfs:subClassOf" ];
+	"spanish-wines:Dry_wine" -> "spanish-wines:By_sugar" [ label = "rdfs:subClassOf" ];
+	"spanish-wines:White_grape" -> "spanish-wines:Grape" [ label = "rdfs:subClassOf" ];
+	"spanish-wines:Sparkling_wine" -> "spanish-wines:By_carbon_dioxide" [ label = "rdfs:subClassOf" ];
+	"spanish-wines:Special" -> "spanish-wines:Wine" [ label = "rdfs:subClassOf" ];
+	"spanish-wines:Region" -> "spanish-wines:Country" [ label = "rdfs:subClassOf" ];
+	"spanish-wines:Red_wine" -> "spanish-wines:Still_wine" [ label = "rdfs:subClassOf" ];
+	"spanish-wines:Semisweet_wine" -> "spanish-wines:By_sugar" [ label = "rdfs:subClassOf" ];
+	"spanish-wines:By_carbon_dioxide" -> "spanish-wines:Wine" [ label = "rdfs:subClassOf" ];
+	"spanish-wines:By_sugar" -> "spanish-wines:Wine" [ label = "rdfs:subClassOf" ];
+	"spanish-wines:White_wine" -> "spanish-wines:Still_wine" [ label = "rdfs:subClassOf" ];
+
+}
